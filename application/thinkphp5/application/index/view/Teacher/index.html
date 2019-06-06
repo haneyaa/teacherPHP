@@ -1,0 +1,31 @@
+<!--在V层中使用php的函数需要类似于这样使用-->
+<!--{:var_dump($teachers)}-->
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <title>教室管理</title>
+  <link rel="stylesheet" type="text/css" href="thinkphp5/public/static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+</head>
+<body>
+  <table>
+    <tr>
+      <th>序号</th>
+      <th>姓名</th>
+      <th>性别</th>
+      <th>邮箱</th>
+      <th>用户名</th>
+    </tr>
+    {volist name="teachers" id="teacher"}
+    <tr>
+      <td>{$key}</td>
+      <td>{$teacher->getData('name')}</td>
+      <td>{eq name='$teacher->getData("sex")' value='0'}男{else /}女{/eq}</td>
+      <td>{$teacher->getData('email')}</td>
+      <td>{$teacher->getData('username')}</td>
+    </tr>
+    {/volist}
+   <!-- {:var_dump($teachers)}-->
+  </table>
+</body>
+</html>
